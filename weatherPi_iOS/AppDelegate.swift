@@ -33,13 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barTintColor = UIColor.black
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "OpenSans", size: 20)!, NSForegroundColorAttributeName: UIColor.white]
+        
+//        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "OpenSans", size: 20)!, NSForegroundColorAttributeName: UIColor.white, NSKernAttributeName: 5.0]
         
         let controller = ViewController()
         let navigationController = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigationController
         
-        // Override point for customization after application launch.
         return true
     }
 

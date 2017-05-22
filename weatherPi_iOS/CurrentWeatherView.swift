@@ -1,9 +1,9 @@
 //
 //  CurrentWeatherView.swift
-//  WeatherPi-iOS
+//  weatherPi_iOS
 //
 //  Created by Jonas Sunnari on 2017-05-22.
-//  Copyright © 2017 sunnari. All rights reserved.
+//  Copyright © 2017 Jonas Sunnari. All rights reserved.
 //
 
 import UIKit
@@ -28,20 +28,13 @@ class CurrentWeatherView: UIView {
     }()
     
     func setupView() {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = bounds
-        //TODO: Set colors as constants
-        gradient.colors = [UIColor(red:0.00, green:0.23, blue:0.27, alpha:1.0), UIColor(red:0.03, green:0.34, blue:0.36, alpha:1.0), UIColor(red:0.00, green:0.23, blue:0.27, alpha:1.0)]
+        let outdoorHeader: ValueHeader = ValueHeader(frame: CGRect(x: 0, y: 65, width: frame.width, height: 40))
+
+        addSubview(outdoorHeader)
+
+        //backgroundColor = UIColor.white
         
-        layer.insertSublayer(gradient, at: 0)
-   
-        
-        addSubview(testLabel)
-        backgroundColor = UIColor.white
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": testLabel]))
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": testLabel]))
+
         
     }
     

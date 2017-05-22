@@ -1,9 +1,9 @@
 //
 //  BackendCommunicator.swift
-//  WeatherPi-iOS
+//  weatherPi_iOS
 //
 //  Created by Jonas Sunnari on 2017-05-22.
-//  Copyright © 2017 sunnari. All rights reserved.
+//  Copyright © 2017 Jonas Sunnari. All rights reserved.
 //
 
 import Alamofire
@@ -28,7 +28,8 @@ class BackendCommunicator: NSObject {
             case .failure(let error):
                 Logger.error("Failed to get current weather, \(error)")
             }
-            
         }
     }
+    
+    
 }

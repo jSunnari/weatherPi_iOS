@@ -23,6 +23,8 @@
 		DD10D9881ED35E5300F2E897 /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD10D9851ED35E5300F2E897 /* Alamofire.framework.dSYM */; };
 		DD10D9891ED35E5300F2E897 /* OpenSansSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD10D9861ED35E5300F2E897 /* OpenSansSwift.framework.dSYM */; };
 		DD10D98A1ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD10D9871ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM */; };
+		DD10D98C1ED36DF400F2E897 /* ValueHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10D98B1ED36DF400F2E897 /* ValueHeader.swift */; };
+		DD10D98E1ED36E2700F2E897 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10D98D1ED36E2700F2E897 /* Value.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +71,8 @@
 		DD10D9851ED35E5300F2E897 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		DD10D9861ED35E5300F2E897 /* OpenSansSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = OpenSansSwift.framework.dSYM; path = Carthage/Build/iOS/OpenSansSwift.framework.dSYM; sourceTree = "<group>"; };
 		DD10D9871ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/iOS/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
+		DD10D98B1ED36DF400F2E897 /* ValueHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueHeader.swift; sourceTree = "<group>"; };
+		DD10D98D1ED36E2700F2E897 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 			children = (
 				DD10D9741ED35C7000F2E897 /* ViewController.swift */,
 				DD10D9751ED35C7000F2E897 /* CurrentWeatherView.swift */,
+				DD10D98B1ED36DF400F2E897 /* ValueHeader.swift */,
+				DD10D98D1ED36E2700F2E897 /* Value.swift */,
 			);
 			name = CurrentWeatherView;
 			sourceTree = "<group>";
@@ -229,6 +235,8 @@
 			files = (
 				DD10D9761ED35C7000F2E897 /* ViewController.swift in Sources */,
 				DD10D9771ED35C7000F2E897 /* CurrentWeatherView.swift in Sources */,
+				DD10D98E1ED36E2700F2E897 /* Value.swift in Sources */,
+				DD10D98C1ED36DF400F2E897 /* ValueHeader.swift in Sources */,
 				DD10D9791ED35C7900F2E897 /* BackendCommunicator.swift in Sources */,
 				DD10D95D1ED35AE400F2E897 /* AppDelegate.swift in Sources */,
 				DD10D9731ED35C1D00F2E897 /* Utility.swift in Sources */,
