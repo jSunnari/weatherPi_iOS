@@ -1,1 +1,1 @@
-# weatherPi_iOS
+# weatherPi - iOS (Swift)
