@@ -1,0 +1,9 @@
+{
+  "commitish" : "cb0a41daa14c7c4b1396f89cd948813966e72418",
+  "iOS" : [
+    {
+      "hash" : "6853da3238800d78ef19384fddd3b4d0169b00257d2ed078fbb04296a38179c1",
+      "name" : "OpenSansSwift"
+    }
+  ]
+}
