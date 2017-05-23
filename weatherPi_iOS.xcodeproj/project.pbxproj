@@ -25,6 +25,10 @@
 		DD10D98A1ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD10D9871ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM */; };
 		DD10D98C1ED36DF400F2E897 /* ValueHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10D98B1ED36DF400F2E897 /* ValueHeader.swift */; };
 		DD10D98E1ED36E2700F2E897 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10D98D1ED36E2700F2E897 /* Value.swift */; };
+		DDC6B3DB1ED46B330074CEC8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC6B3DA1ED46B330074CEC8 /* SwiftyJSON.framework */; };
+		DDC6B3DC1ED46B330074CEC8 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDC6B3DA1ED46B330074CEC8 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDC6B3DE1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DDC6B3DD1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM */; };
+		DDC6B3E11ED477590074CEC8 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC6B3E01ED477590074CEC8 /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DDC6B3DC1ED46B330074CEC8 /* SwiftyJSON.framework in Embed Frameworks */,
 				DD10D97E1ED35DFA00F2E897 /* Alamofire.framework in Embed Frameworks */,
 				DD10D9821ED35DFA00F2E897 /* SwiftyBeaver.framework in Embed Frameworks */,
 				DD10D9801ED35DFA00F2E897 /* OpenSansSwift.framework in Embed Frameworks */,
@@ -50,6 +55,7 @@
 				DD10D9881ED35E5300F2E897 /* Alamofire.framework.dSYM in CopyFiles */,
 				DD10D9891ED35E5300F2E897 /* OpenSansSwift.framework.dSYM in CopyFiles */,
 				DD10D98A1ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM in CopyFiles */,
+				DDC6B3DE1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +79,9 @@
 		DD10D9871ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/iOS/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		DD10D98B1ED36DF400F2E897 /* ValueHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueHeader.swift; sourceTree = "<group>"; };
 		DD10D98D1ED36E2700F2E897 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		DDC6B3DA1ED46B330074CEC8 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		DDC6B3DD1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
+		DDC6B3E01ED477590074CEC8 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC6B3DB1ED46B330074CEC8 /* SwiftyJSON.framework in Frameworks */,
 				DD10D97D1ED35DFA00F2E897 /* Alamofire.framework in Frameworks */,
 				DD10D9811ED35DFA00F2E897 /* SwiftyBeaver.framework in Frameworks */,
 				DD10D97F1ED35DFA00F2E897 /* OpenSansSwift.framework in Frameworks */,
@@ -109,6 +119,7 @@
 		DD10D95B1ED35AE400F2E897 /* weatherPi_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				DDC6B3DF1ED4774D0074CEC8 /* Models */,
 				DD10D9711ED35B7D00F2E897 /* Utility */,
 				DD10D9701ED35B7500F2E897 /* CurrentWeatherView */,
 				DD10D96F1ED35B6D00F2E897 /* Backend */,
@@ -123,6 +134,8 @@
 		DD10D96E1ED35B5600F2E897 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDC6B3DD1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM */,
+				DDC6B3DA1ED46B330074CEC8 /* SwiftyJSON.framework */,
 				DD10D9851ED35E5300F2E897 /* Alamofire.framework.dSYM */,
 				DD10D9861ED35E5300F2E897 /* OpenSansSwift.framework.dSYM */,
 				DD10D9871ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM */,
@@ -158,6 +171,14 @@
 				DD10D9721ED35C1D00F2E897 /* Utility.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		DDC6B3DF1ED4774D0074CEC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDC6B3E01ED477590074CEC8 /* CurrentWeather.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +256,7 @@
 			files = (
 				DD10D9761ED35C7000F2E897 /* ViewController.swift in Sources */,
 				DD10D9771ED35C7000F2E897 /* CurrentWeatherView.swift in Sources */,
+				DDC6B3E11ED477590074CEC8 /* CurrentWeather.swift in Sources */,
 				DD10D98E1ED36E2700F2E897 /* Value.swift in Sources */,
 				DD10D98C1ED36DF400F2E897 /* ValueHeader.swift in Sources */,
 				DD10D9791ED35C7900F2E897 /* BackendCommunicator.swift in Sources */,
@@ -298,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -342,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -401,6 +423,7 @@
 				DD10D96D1ED35AE400F2E897 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

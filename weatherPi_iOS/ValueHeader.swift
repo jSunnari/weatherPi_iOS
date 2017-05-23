@@ -9,7 +9,8 @@
 import UIKit
 
 class ValueHeader: UIView {
-    
+    private let gradient: CAGradientLayer = CAGradientLayer()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -22,23 +23,45 @@ class ValueHeader: UIView {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 12)!, NSForegroundColorAttributeName: UIColor.white, NSKernAttributeName: 4.0]
-        label.attributedText = NSAttributedString(string: "HeaderText", attributes: attributes)
         label.sizeToFit()
-        
         return label
     }()
     
     func setupView() {
+        // Background gradient:
+        gradient.colors = [UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.4).cgColor, UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.6).cgColor, UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.4).cgColor]
+        gradient.locations = [0.0, 0.5, 1.0]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        layer.insertSublayer(gradient, at: 0)
+
+        // Debug
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.cyan.cgColor
         
         addSubview(headerLabel)
-        
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.red.cgColor
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": headerLabel]))
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": headerLabel]))
+
     }
+    
+    func setupConstraints() {
+        headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        headerLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: -5.0).isActive = true
+    }
+    
+    func setHeaderLabel(text: String) {
+        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 14)!, NSForegroundColorAttributeName: UIColor.white, NSKernAttributeName: 2.0]
+        headerLabel.attributedText = NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    override func layoutSubviews() {
+        gradient.frame = bounds
+        setupConstraints()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIViewNoIntrinsicMetric, height: 45)
+    }
+    
+
+    
 }
