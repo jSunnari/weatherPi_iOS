@@ -27,12 +27,12 @@ class ValueHeader: UIView {
         return label
     }()
     
-    func setupView() {
+    private func setupView() {
         setBackground()
         addSubview(headerLabel)
     }
     
-    func setBackground() {
+    private func setBackground() {
         gradient.colors = [UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.black.withAlphaComponent(0.6).cgColor, UIColor.black.withAlphaComponent(0.3).cgColor]
         gradient.locations = [0.0, 0.5, 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
@@ -40,7 +40,7 @@ class ValueHeader: UIView {
         layer.insertSublayer(gradient, at: 0)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         headerLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: -5.0).isActive = true
     }
