@@ -11,7 +11,6 @@ import SwiftyBeaver
 import SwiftyJSON
 
 class BackendCommunicator: NSObject {
-    
     private static let baseUrl : URL! = URL(string: baseHostUrl)
     private static let currentWeatherEndpoint: String = "api/weather/current"
     
@@ -25,7 +24,6 @@ class BackendCommunicator: NSObject {
             switch response.result {
             case .success(let value):
                 Logger.info(value)
-                
                 success(JSON(value))
             case .failure(let error):
                 Logger.error("Failed to fetch current weather, \(error)")

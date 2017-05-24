@@ -10,9 +10,6 @@ import UIKit
 import SwiftyJSON
 
 class CurrentWeatherView: UIStackView {
-    private let headerHeight: CGFloat = 40.0
-    private let valueHeight: CGFloat = 100.0
-    
     private let outdoorHeaderView: ValueHeader = ValueHeader()
     private let indoorHeaderView: ValueHeader = ValueHeader()
 
@@ -33,17 +30,12 @@ class CurrentWeatherView: UIStackView {
 
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
-        // Debug
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.red.cgColor
-        
         distribution = UIStackViewDistribution.fillProportionally
         axis = UILayoutConstraintAxis.vertical
         alignment = UIStackViewAlignment.fill
         
         outdoorHeaderView.setHeaderLabel(text: "OUTDOOR")
         indoorHeaderView.setHeaderLabel(text: "INDOOR")
-
         addArrangedSubview(outdoorHeaderView)
         addArrangedSubview(outdoorTemperatureView)
         addArrangedSubview(outdoorHumidityView)
@@ -54,62 +46,46 @@ class CurrentWeatherView: UIStackView {
     }
     
     func setCurrentvalues(weather: JSON) {
-        let outdoorTemperature = String(weather["outdoorTemp"].doubleValue)
-        let outdoorHumidity = String(format: "%.0f", weather["outdoorHum"].doubleValue)
-        let outdoorPressure = String(format: "%.0f", weather["outdoorPressure"].doubleValue)
-        let indoorTemperature = String(weather["indoorTemp"].doubleValue)
-        let indoorHumidity = String(format: "%.0f", weather["indoorHum"].doubleValue)
-        
-        
+        let outdoorTemperature = String(weather["outdoorTemp"].doubleValue) + "°C"
+        let outdoorMinTemperature = String(weather["outdoorMinTemp"].doubleValue) + "°C"
+        let outdoorMaxTemperature = String(weather["outdoorMaxTemp"].doubleValue) + "°C"
+
+        let outdoorHumidity = String(format: "%.0f", weather["outdoorHum"].doubleValue) + "%"
+        let outdoorMinHumidity = String(format: "%.0f", weather["outdoorMinHum"].doubleValue) + "%"
+        let outdoorMaxHumidity = String(format: "%.0f", weather["outdoorMaxHum"].doubleValue) + "%"
+
+        let outdoorPressure = String(format: "%.0f", weather["outdoorPressure"].doubleValue) + "hPa"
+        let outdoorMinPressure = String(format: "%.0f", weather["outdoorMinPressure"].doubleValue) + "hPa"
+        let outdoorMaxPressure = String(format: "%.0f", weather["outdoorMaxPressure"].doubleValue) + "hPa"
+
+        let indoorTemperature = String(weather["indoorTemp"].doubleValue) + "°C"
+        let indoorMinTemperature = String(weather["indoorMinTemp"].doubleValue) + "°C"
+        let indoorMaxTemperature = String(weather["indoorMaxTemp"].doubleValue) + "°C"
+
+        let indoorHumidity = String(format: "%.0f", weather["indoorHum"].doubleValue) + "%"
+        let indoorMinHumidity = String(format: "%.0f", weather["indoorMinHum"].doubleValue) + "%"
+        let indoorMaxHumidity = String(format: "%.0f", weather["indoorMaxHum"].doubleValue) + "%"
+
         outdoorTemperatureView.setCurrentvalueLabel(text: outdoorTemperature)
+        outdoorTemperatureView.setMinValueLabel(text: outdoorMinTemperature)
+        outdoorTemperatureView.setMaxValueLabel(text: outdoorMaxTemperature)
         
         outdoorHumidityView.setCurrentvalueLabel(text: outdoorHumidity)
-        
+        outdoorHumidityView.setMinValueLabel(text: outdoorMinHumidity)
+        outdoorHumidityView.setMaxValueLabel(text: outdoorMaxHumidity)
+
         outdoorPressureView.setCurrentvalueLabel(text: outdoorPressure)
-        
+        outdoorPressureView.setMinValueLabel(text: outdoorMinPressure)
+        outdoorPressureView.setMaxValueLabel(text: outdoorMaxPressure)
+
         indoorTemperatureView.setCurrentvalueLabel(text: indoorTemperature)
-        
+        indoorTemperatureView.setMinValueLabel(text: indoorMinTemperature)
+        indoorTemperatureView.setMaxValueLabel(text: indoorMaxTemperature)
+
         indoorHumidityView.setCurrentvalueLabel(text: indoorHumidity)
+        indoorHumidityView.setMinValueLabel(text: indoorMinHumidity)
+        indoorHumidityView.setMaxValueLabel(text: indoorMaxHumidity)
         
-        
-    }
-    
-    
-    private func setupHeaderConstraints() {
-        outdoorHeaderView.translatesAutoresizingMaskIntoConstraints = false
-        outdoorHeaderView.heightAnchor.constraint(equalToConstant: headerHeight).isActive = true
-        outdoorHeaderView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        
-        indoorHeaderView.translatesAutoresizingMaskIntoConstraints = false
-        indoorHeaderView.heightAnchor.constraint(equalToConstant: headerHeight).isActive = true
-        indoorHeaderView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-    }
-    
-    private func setupValueConstraints() {
-        outdoorTemperatureView.translatesAutoresizingMaskIntoConstraints = false
-        outdoorTemperatureView.heightAnchor.constraint(equalToConstant: valueHeight).isActive = true
-        outdoorTemperatureView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        
-        outdoorHumidityView.translatesAutoresizingMaskIntoConstraints = false
-        outdoorHumidityView.heightAnchor.constraint(equalToConstant: valueHeight).isActive = true
-        outdoorHumidityView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        
-        outdoorPressureView.translatesAutoresizingMaskIntoConstraints = false
-        outdoorPressureView.heightAnchor.constraint(equalToConstant: valueHeight).isActive = true
-        outdoorPressureView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        
-        indoorTemperatureView.translatesAutoresizingMaskIntoConstraints = false
-        indoorTemperatureView.heightAnchor.constraint(equalToConstant: valueHeight).isActive = true
-        indoorTemperatureView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        
-        indoorHumidityView.translatesAutoresizingMaskIntoConstraints = false
-        indoorHumidityView.heightAnchor.constraint(equalToConstant: valueHeight).isActive = true
-        indoorHumidityView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-    }
-    
-    override func layoutSubviews() {
-        //setupHeaderConstraints()
-        //setupValueConstraints()
     }
     
 }

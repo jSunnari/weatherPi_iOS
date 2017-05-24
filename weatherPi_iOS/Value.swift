@@ -9,7 +9,7 @@
 import UIKit
 
 class Value: UIView {
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -44,20 +44,32 @@ class Value: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = #imageLiteral(resourceName: "wea-temp")
-        //imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private func setupView() {
-        layer.borderColor = UIColor.orange.cgColor
-        layer.borderWidth = 1
+    private let separator: UIView = {
+        let separatorView = UIView()
         
+        let separatorGradient: CAGradientLayer = CAGradientLayer()
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        separatorGradient.colors = [UIColor.clear.cgColor, UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.3).cgColor, UIColor.clear.cgColor]
+        separatorGradient.locations = [0.0, 0.5, 1.0]
+        separatorGradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        separatorGradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        separatorView.layer.insertSublayer(separatorGradient, at: 0)
+
+        return separatorView
+    }()
+    
+    private func setupView() {
+
         addSubview(currentValueLabel)
         addSubview(minValueLabel)
         addSubview(maxValueLabel)
+
+        addSubview(separator)
         
         //addSubview(valueTypeIcon)
-
     }
     
     private func setupConstraints() {
@@ -69,6 +81,12 @@ class Value: UIView {
         
         maxValueLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 5.0).isActive = true
         maxValueLabel.leftAnchor.constraint(equalTo: centerXAnchor, constant: 10.0).isActive = true
+        
+        separator.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        separator.topAnchor.constraint(equalTo: bottomAnchor, constant: -1.0).isActive = true
+        separator.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        separator.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        separator.layer.sublayers?[0].frame = separator.bounds
         
         //valueTypeIcon.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         //valueTypeIcon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

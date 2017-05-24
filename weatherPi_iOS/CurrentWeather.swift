@@ -6,4 +6,6 @@
 //  Copyright © 2017 Jonas Sunnari. All rights reserved.
 //
 
-
+class CurrentWeather {
+    private let outdoorTemperature: Double = 0.0
+}
