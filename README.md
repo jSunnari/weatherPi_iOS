@@ -7,4 +7,4 @@ You may need to update the carthage-dependenices with:
 $ carthage update --platform iOS 
 ```
 ### Screenshot:
-![weatherpi-ios](https://cloud.githubusercontent.com/assets/15261370/26414076/4cc3438e-40ae-11e7-9276-ce64c1f12aab.png)
+![weatherpi-ios](https://cloud.githubusercontent.com/assets/15261370/26414103/636c1912-40ae-11e7-8c89-0ab0194e17e0.png)
