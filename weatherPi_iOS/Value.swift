@@ -43,7 +43,26 @@ class Value: UIView {
     private let valueTypeIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = #imageLiteral(resourceName: "wea-temp")
+        return imageView
+    }()
+    
+    private let minValueIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = #imageLiteral(resourceName: "arr-vertical-down")
+        return imageView
+    }()
+    
+    private let maxValueIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = #imageLiteral(resourceName: "arr-vertical-up")
+        return imageView
+    }()
+    
+    private let trendIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -62,49 +81,68 @@ class Value: UIView {
     }()
     
     private func setupView() {
-
         addSubview(currentValueLabel)
         addSubview(minValueLabel)
         addSubview(maxValueLabel)
 
-        addSubview(separator)
+        addSubview(valueTypeIcon)
+        addSubview(minValueIcon)
+        addSubview(maxValueIcon)
+        addSubview(trendIcon)
         
-        //addSubview(valueTypeIcon)
+        addSubview(separator)
     }
     
     private func setupConstraints() {
-        currentValueLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 5.0).isActive = true
+        currentValueLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 0.0).isActive = true
         currentValueLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         minValueLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 5.0).isActive = true
-        minValueLabel.rightAnchor.constraint(equalTo: centerXAnchor, constant: -10.0).isActive = true
+        minValueLabel.rightAnchor.constraint(equalTo: centerXAnchor, constant: -15.0).isActive = true
         
         maxValueLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 5.0).isActive = true
-        maxValueLabel.leftAnchor.constraint(equalTo: centerXAnchor, constant: 10.0).isActive = true
+        maxValueLabel.leftAnchor.constraint(equalTo: centerXAnchor, constant: 15.0).isActive = true
+        
+        valueTypeIcon.leftAnchor.constraint(equalTo: leftAnchor, constant: 10.0).isActive = true
+        valueTypeIcon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        minValueIcon.rightAnchor.constraint(equalTo: minValueLabel.leftAnchor, constant: 5.0).isActive = true
+        minValueIcon.centerYAnchor.constraint(equalTo: minValueLabel.centerYAnchor).isActive = true
+        
+        maxValueIcon.rightAnchor.constraint(equalTo: maxValueLabel.leftAnchor, constant: 5.0).isActive = true
+        maxValueIcon.centerYAnchor.constraint(equalTo: maxValueLabel.centerYAnchor).isActive = true
+        
+        trendIcon.rightAnchor.constraint(equalTo: rightAnchor, constant: -10.0).isActive = true
+        trendIcon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         separator.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         separator.topAnchor.constraint(equalTo: bottomAnchor, constant: -1.0).isActive = true
         separator.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         separator.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         separator.layer.sublayers?[0].frame = separator.bounds
-        
-        //valueTypeIcon.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        //valueTypeIcon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     func setCurrentvalueLabel(text: String) {
-        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 24)!, NSForegroundColorAttributeName: UIColor.white, NSKernAttributeName: 2.0]
+        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 26)!, NSForegroundColorAttributeName: UIColor.white, NSKernAttributeName: 2.0]
         currentValueLabel.attributedText = NSAttributedString(string: text, attributes: attributes)
     }
     
     func setMinValueLabel(text: String) {
-        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 14)!, NSForegroundColorAttributeName: UIColor.white, NSKernAttributeName: 2.0]
+        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 17)!, NSForegroundColorAttributeName: UIColor.white.withAlphaComponent(0.7), NSKernAttributeName: 2.0]
         minValueLabel.attributedText = NSAttributedString(string: text, attributes: attributes)
     }
     
     func setMaxValueLabel(text: String) {
-        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 14)!, NSForegroundColorAttributeName: UIColor.white, NSKernAttributeName: 2.0]
+        let attributes: [String : Any] = [NSFontAttributeName: UIFont(name: "OpenSans", size: 17)!, NSForegroundColorAttributeName: UIColor.white.withAlphaComponent(0.7), NSKernAttributeName: 2.0]
         maxValueLabel.attributedText = NSAttributedString(string: text, attributes: attributes)
+    }
+    
+    func setValueIcon(valueIcon: UIImage) {
+        valueTypeIcon.image = valueIcon
+    }
+    
+    func setTrendArrow(direction: String) {
+        trendIcon.image = UIImage(named: direction)
     }
     
     override func layoutSubviews() {

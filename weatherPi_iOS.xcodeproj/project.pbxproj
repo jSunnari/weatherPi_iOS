@@ -25,6 +25,7 @@
 		DD10D98A1ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DD10D9871ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM */; };
 		DD10D98C1ED36DF400F2E897 /* ValueHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10D98B1ED36DF400F2E897 /* ValueHeader.swift */; };
 		DD10D98E1ED36E2700F2E897 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD10D98D1ED36E2700F2E897 /* Value.swift */; };
+		DD4FE3C41ED578FA00F73CF5 /* UIColor+Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4FE3C31ED578FA00F73CF5 /* UIColor+Customs.swift */; };
 		DDC6B3DB1ED46B330074CEC8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC6B3DA1ED46B330074CEC8 /* SwiftyJSON.framework */; };
 		DDC6B3DC1ED46B330074CEC8 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDC6B3DA1ED46B330074CEC8 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC6B3DE1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = DDC6B3DD1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM */; };
@@ -79,6 +80,7 @@
 		DD10D9871ED35E5300F2E897 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/iOS/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		DD10D98B1ED36DF400F2E897 /* ValueHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueHeader.swift; sourceTree = "<group>"; };
 		DD10D98D1ED36E2700F2E897 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		DD4FE3C31ED578FA00F73CF5 /* UIColor+Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Customs.swift"; sourceTree = "<group>"; };
 		DDC6B3DA1ED46B330074CEC8 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		DDC6B3DD1ED46B410074CEC8 /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		DDC6B3E01ED477590074CEC8 /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		DD10D95B1ED35AE400F2E897 /* weatherPi_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				DD4FE3C21ED578A900F73CF5 /* Extensions */,
 				DDC6B3DF1ED4774D0074CEC8 /* Models */,
 				DD10D9711ED35B7D00F2E897 /* Utility */,
 				DD10D9701ED35B7500F2E897 /* CurrentWeatherView */,
@@ -171,6 +174,14 @@
 				DD10D9721ED35C1D00F2E897 /* Utility.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		DD4FE3C21ED578A900F73CF5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD4FE3C31ED578FA00F73CF5 /* UIColor+Customs.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		DDC6B3DF1ED4774D0074CEC8 /* Models */ = {
@@ -255,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD10D9761ED35C7000F2E897 /* ViewController.swift in Sources */,
+				DD4FE3C41ED578FA00F73CF5 /* UIColor+Customs.swift in Sources */,
 				DD10D9771ED35C7000F2E897 /* CurrentWeatherView.swift in Sources */,
 				DDC6B3E11ED477590074CEC8 /* CurrentWeather.swift in Sources */,
 				DD10D98E1ED36E2700F2E897 /* Value.swift in Sources */,

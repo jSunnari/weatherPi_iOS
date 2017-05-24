@@ -23,7 +23,7 @@ class BackendCommunicator: NSObject {
         Alamofire.request(requestUrl, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
-                Logger.info(value)
+                Logger.info("Successfully fetched data from server.")
                 success(JSON(value))
             case .failure(let error):
                 Logger.error("Failed to fetch current weather, \(error)")

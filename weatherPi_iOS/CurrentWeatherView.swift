@@ -13,11 +13,11 @@ class CurrentWeatherView: UIStackView {
     private let outdoorHeaderView: ValueHeader = ValueHeader()
     private let indoorHeaderView: ValueHeader = ValueHeader()
 
-    let outdoorTemperatureView: Value = Value()
-    let outdoorHumidityView: Value = Value()
-    let outdoorPressureView: Value = Value()
-    let indoorTemperatureView: Value = Value()
-    let indoorHumidityView: Value = Value()
+    private let outdoorTemperatureView: Value = Value()
+    private let outdoorHumidityView: Value = Value()
+    private let outdoorPressureView: Value = Value()
+    private let indoorTemperatureView: Value = Value()
+    private let indoorHumidityView: Value = Value()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +36,13 @@ class CurrentWeatherView: UIStackView {
         
         outdoorHeaderView.setHeaderLabel(text: "OUTDOOR")
         indoorHeaderView.setHeaderLabel(text: "INDOOR")
+        
+        outdoorTemperatureView.setValueIcon(valueIcon: #imageLiteral(resourceName: "wea-temperature"))
+        outdoorHumidityView.setValueIcon(valueIcon: #imageLiteral(resourceName: "wea-humidity"))
+        outdoorPressureView.setValueIcon(valueIcon: #imageLiteral(resourceName: "wea-pressure"))
+        indoorTemperatureView.setValueIcon(valueIcon: #imageLiteral(resourceName: "wea-temperature"))
+        indoorHumidityView.setValueIcon(valueIcon: #imageLiteral(resourceName: "wea-humidity"))
+        
         addArrangedSubview(outdoorHeaderView)
         addArrangedSubview(outdoorTemperatureView)
         addArrangedSubview(outdoorHumidityView)
@@ -45,47 +52,33 @@ class CurrentWeatherView: UIStackView {
         addArrangedSubview(indoorHumidityView)
     }
     
-    func setCurrentvalues(weather: JSON) {
-        let outdoorTemperature = String(weather["outdoorTemp"].doubleValue) + "°C"
-        let outdoorMinTemperature = String(weather["outdoorMinTemp"].doubleValue) + "°C"
-        let outdoorMaxTemperature = String(weather["outdoorMaxTemp"].doubleValue) + "°C"
-
-        let outdoorHumidity = String(format: "%.0f", weather["outdoorHum"].doubleValue) + "%"
-        let outdoorMinHumidity = String(format: "%.0f", weather["outdoorMinHum"].doubleValue) + "%"
-        let outdoorMaxHumidity = String(format: "%.0f", weather["outdoorMaxHum"].doubleValue) + "%"
-
-        let outdoorPressure = String(format: "%.0f", weather["outdoorPressure"].doubleValue) + "hPa"
-        let outdoorMinPressure = String(format: "%.0f", weather["outdoorMinPressure"].doubleValue) + "hPa"
-        let outdoorMaxPressure = String(format: "%.0f", weather["outdoorMaxPressure"].doubleValue) + "hPa"
-
-        let indoorTemperature = String(weather["indoorTemp"].doubleValue) + "°C"
-        let indoorMinTemperature = String(weather["indoorMinTemp"].doubleValue) + "°C"
-        let indoorMaxTemperature = String(weather["indoorMaxTemp"].doubleValue) + "°C"
-
-        let indoorHumidity = String(format: "%.0f", weather["indoorHum"].doubleValue) + "%"
-        let indoorMinHumidity = String(format: "%.0f", weather["indoorMinHum"].doubleValue) + "%"
-        let indoorMaxHumidity = String(format: "%.0f", weather["indoorMaxHum"].doubleValue) + "%"
-
-        outdoorTemperatureView.setCurrentvalueLabel(text: outdoorTemperature)
-        outdoorTemperatureView.setMinValueLabel(text: outdoorMinTemperature)
-        outdoorTemperatureView.setMaxValueLabel(text: outdoorMaxTemperature)
+    func setCurrentvalues(with currentWeather: CurrentWeather) {
+        outdoorTemperatureView.setCurrentvalueLabel(text: currentWeather.outdoorTemperature)
+        outdoorTemperatureView.setMinValueLabel(text: currentWeather.outdoorMinTemperature)
+        outdoorTemperatureView.setMaxValueLabel(text: currentWeather.outdoorMaxTemperature)
         
-        outdoorHumidityView.setCurrentvalueLabel(text: outdoorHumidity)
-        outdoorHumidityView.setMinValueLabel(text: outdoorMinHumidity)
-        outdoorHumidityView.setMaxValueLabel(text: outdoorMaxHumidity)
+        outdoorHumidityView.setCurrentvalueLabel(text: currentWeather.outdoorHumidity)
+        outdoorHumidityView.setMinValueLabel(text: currentWeather.outdoorMinHumidity)
+        outdoorHumidityView.setMaxValueLabel(text: currentWeather.outdoorMaxHumidity)
 
-        outdoorPressureView.setCurrentvalueLabel(text: outdoorPressure)
-        outdoorPressureView.setMinValueLabel(text: outdoorMinPressure)
-        outdoorPressureView.setMaxValueLabel(text: outdoorMaxPressure)
+        outdoorPressureView.setCurrentvalueLabel(text: currentWeather.outdoorPressure)
+        outdoorPressureView.setMinValueLabel(text: currentWeather.outdoorMinPressure)
+        outdoorPressureView.setMaxValueLabel(text: currentWeather.outdoorMaxPressure)
 
-        indoorTemperatureView.setCurrentvalueLabel(text: indoorTemperature)
-        indoorTemperatureView.setMinValueLabel(text: indoorMinTemperature)
-        indoorTemperatureView.setMaxValueLabel(text: indoorMaxTemperature)
+        indoorTemperatureView.setCurrentvalueLabel(text: currentWeather.indoorTemperature)
+        indoorTemperatureView.setMinValueLabel(text: currentWeather.indoorMinTemperature)
+        indoorTemperatureView.setMaxValueLabel(text: currentWeather.indoorMaxTemperature)
 
-        indoorHumidityView.setCurrentvalueLabel(text: indoorHumidity)
-        indoorHumidityView.setMinValueLabel(text: indoorMinHumidity)
-        indoorHumidityView.setMaxValueLabel(text: indoorMaxHumidity)
+        indoorHumidityView.setCurrentvalueLabel(text: currentWeather.indoorHumidity)
+        indoorHumidityView.setMinValueLabel(text: currentWeather.indoorMinHumidity)
+        indoorHumidityView.setMaxValueLabel(text: currentWeather.indoorMaxHumidity)
         
+        outdoorTemperatureView.setTrendArrow(direction: currentWeather.outdoorTemperatureTrend)
+        outdoorHumidityView.setTrendArrow(direction: currentWeather.outdoorHumidityTrend)
+        outdoorPressureView.setTrendArrow(direction: currentWeather.outdoorPressureTrend)
+        
+        indoorTemperatureView.setTrendArrow(direction: currentWeather.indoorTemperatureTrend)
+        indoorHumidityView.setTrendArrow(direction: currentWeather.indoorHumidityTrend)
     }
     
 }

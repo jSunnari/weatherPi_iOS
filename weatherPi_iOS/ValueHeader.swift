@@ -28,14 +28,16 @@ class ValueHeader: UIView {
     }()
     
     func setupView() {
-        // Background gradient:
+        setBackground()
+        addSubview(headerLabel)
+    }
+    
+    func setBackground() {
         gradient.colors = [UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.3).cgColor, UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.6).cgColor, UIColor(red:0.00, green:0.00, blue:0.00, alpha:0.3).cgColor]
         gradient.locations = [0.0, 0.5, 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-        
         layer.insertSublayer(gradient, at: 0)
-        addSubview(headerLabel)
     }
     
     func setupConstraints() {
